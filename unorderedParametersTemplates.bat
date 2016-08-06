@@ -1,16 +1,16 @@
 @ECHO off
 GOTO _start
 :usage
-ECHO ÀÌ¸§
+ECHO ì´ë¦„
 ECHO   unorderedParametersTemplates.bat
-ECHO °³¿ä
-ECHO   BatchÆÄÀÏ¿¡¼­ ¼ø¼­¿¡ »ó°ü ¾ø´Â ÆÄ¶ó¹ÌÅÍ¸¦ »ç¿ëÇÏ±â À§ÇÑ ÅÛÇÃ¸´ÀÔ´Ï´Ù.
-ECHO ±¸¹®
+ECHO ê°œìš”
+ECHO   BatchíŒŒì¼ì—ì„œ ìˆœì„œì— ìƒê´€ ì—†ëŠ” íŒŒë¼ë¯¸í„°ë¥¼ ì‚¬ìš©í•˜ê¸° ìœ„í•œ í…œí”Œë¦¿ì…ë‹ˆë‹¤.
+ECHO êµ¬ë¬¸
 ECHO   unorderredParametersTemplates.bat /par1:<string> /par2:<integer> [/Verbose]
-ECHO ÆÄ¶ó¸ŞÅ¸
-ECHO  /SourceImageFile    : (ÇÊ¼ö)¹®ÀÚ¿­Å¸ÀÔÀÇ ÆÄ¶ó¹ÌÅÍÀÔ´Ï´Ù.
-ECHO  /SourceIndex        : (ÇÊ¼ö)¼ıÀÚÅ¸ÀÔÀÇ ÆÄ¶ó¹ÌÅÍÀÔ´Ï´Ù.
-ECHO  /Verbose            : ÀÚ¼¼ÇÑ ¼³¸íÀ» º¸¿©Áİ´Ï´Ù.
+ECHO íŒŒë¼ë©”íƒ€
+ECHO  /SourceImageFile    : (í•„ìˆ˜)ë¬¸ìì—´íƒ€ì…ì˜ íŒŒë¼ë¯¸í„°ì…ë‹ˆë‹¤.
+ECHO  /SourceIndex        : (í•„ìˆ˜)ìˆ«ìíƒ€ì…ì˜ íŒŒë¼ë¯¸í„°ì…ë‹ˆë‹¤.
+ECHO  /Verbose            : ìì„¸í•œ ì„¤ëª…ì„ ë³´ì—¬ì¤ë‹ˆë‹¤.
 
 GOTO _exit
 
@@ -39,7 +39,7 @@ IF [%verbose%]==[true] (
   ECHO ================================================================
 )
 
-REM Set mandantory parameters behaiver
+REM Set mandantory parameters behavior
 IF [%par1%]==[] GOTO usage
 IF [%par2%]==[] GOTO usage
 
