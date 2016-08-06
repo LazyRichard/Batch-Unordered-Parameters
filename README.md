@@ -4,13 +4,14 @@
 
 CMD에서 배치파일을 작성하다 보면 파라미터들이 많은 경우 순서나 왜 이런 인자를 전달했는지 햇갈리는 경우가 종종 발생합니다.
 이를 해결하고자 파라미터에 이름을 부여하고 순서에 상관 없이 전달 할 수 있게 만들고자 합니다.
-DISM에서 사용하는 방식처럼 각각의 인자는 /<파라미터 이름>으로 전달되는 것을 기본으로 하였습니다.
-그리고 값은 :(콜론) 뒤에 넣도록 작성하였습니다.
-다시 말해서 인자를 전달하려면 <배치파일 이름.bat> /<파라미터 이름>:<값>의 형태로 전달하면 됩니다.
+DISM에서 사용하는 방식처럼 각각의 인자는 `/<파라미터 이름>`으로 전달되는 것을 기본으로 하였습니다.
+그리고 값은 `:(콜론)` 뒤에 넣도록 작성하였습니다.
+다시 말해서 인자를 전달하려면 `<배치파일 이름.bat> /<파라미터 이름>:<값>`의 형태로 전달하면 됩니다.
 또한 스위치 인자를 사용할 수 있습니다.
 
 ## 사용법
 ###### 기본적인 파라미터 작성법
+```
 REM Parsing parameters
 IF [%1]==[] ( GOTO usage )
 FOR %%i IN (%*) DO (
@@ -38,9 +39,11 @@ FOR %%i IN (%*) DO (
       SET verbose=true )
   )
 )
+```
 
 ###### 필수 항목 작성법
 필수 항목의 파라미터를 작성하는 방법은 아래와 같습니다.
+```
 REM Parsing parameters
 IF [%1]==[] ( GOTO usage )
 FOR %%i IN (%*) DO (
@@ -60,12 +63,12 @@ FOR %%i IN (%*) DO (
 REM 이후 필수 파라미터는 아래 위치에 만약 파라미터의 값이 없을 경우 추가적으로 처리하는 루틴을 작성합니다.
 REM Set mandantory parameters behaiver
 IF [%par3%]==[] GOTO usage
-
+```
 ## 알려진 문제점
 1. 문자열 파라미터 입력을 받을 때, 띄어쓰기 처리가 안됩니다.
-즉, unorderedparmetertemplates.bat /par1:"aaa"는 가능하지만
-unorderedparmetertemplates.bat /par1:"aaa bbb"는 에러가 납니다.
+즉, `unorderedparmetertemplates.bat /par1:"aaa"`는 가능하지만
+`unorderedparmetertemplates.bat /par1:"aaa bbb"`는 에러가 납니다.
 
 2. 파라미터 이름을 작성 할 때, 대소문자 구분을 합니다.
-만약 파라미터 이름을 /Par로 작성하였으면 파라미터를 전달 할때도 /Par:<value>로 전달해야 합니다.
+만약 파라미터 이름을 `/Par`로 작성하였으면 파라미터를 전달 할때도 `/Par:<value>`로 전달해야 합니다.
 그렇지 않으면 에러가 납니다.
